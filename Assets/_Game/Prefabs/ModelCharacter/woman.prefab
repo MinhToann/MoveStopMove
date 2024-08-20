@@ -68,11 +68,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4326877755297107721}
   m_SourcePrefab: {fileID: 100100000, guid: ac0d0842e019ad0468765f5128e6a936, type: 3}
---- !u!4 &1455407411370784384 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6502182839619065283, guid: ac0d0842e019ad0468765f5128e6a936, type: 3}
-  m_PrefabInstance: {fileID: 5624645756944868163}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &2262025452511813330 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: ac0d0842e019ad0468765f5128e6a936, type: 3}
@@ -96,6 +91,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 2262025452511813330}
-  leftHand: {fileID: 0}
-  imgWeapon: {fileID: 0}
-  handHolder: {fileID: 1455407411370784384}
+  handHolder: {fileID: 6321766664986729611}
+--- !u!4 &6321766664986729611 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: ac0d0842e019ad0468765f5128e6a936, type: 3}
+  m_PrefabInstance: {fileID: 5624645756944868163}
+  m_PrefabAsset: {fileID: 0}

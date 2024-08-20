@@ -132,9 +132,9 @@ MonoBehaviour:
   bulletPoint: {fileID: 2574201685097855828}
   characterAnim: {fileID: 0}
   characterList: []
-  weaponDataSO: {fileID: 11400000, guid: 56d62115e3a72f747ac841e663ab40d4, type: 2}
   itemPrefabSO: {fileID: 11400000, guid: d36eb0f9744b3634fa4f333291327d35, type: 2}
   handHolder: {fileID: 0}
+  <timerDeath>k__BackingField: 0
   poolType: 0
   agent: {fileID: 1921721316432323863}
   listModels:
@@ -143,6 +143,7 @@ MonoBehaviour:
   - {fileID: 6156828347071018, guid: 363e764068431334291f411af5f0dba0, type: 3}
   - {fileID: 3910264161544189521, guid: d5e8d0822dd40a543b258c916afe7570, type: 3}
   - {fileID: 4326877755297107721, guid: f064b3af6a33fb54793a06190ad8fa26, type: 3}
+  itemWeapon: {fileID: 11400000, guid: d36eb0f9744b3634fa4f333291327d35, type: 2}
 --- !u!195 &1921721316432323863
 NavMeshAgent:
   m_ObjectHideFlags: 0

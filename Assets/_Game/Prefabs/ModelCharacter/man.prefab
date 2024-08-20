@@ -73,9 +73,9 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 1b9b46051fd47044d893052f87107272, type: 3}
   m_PrefabInstance: {fileID: 5795268145511389241}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &743245103169359354 stripped
+--- !u!4 &5321356342101551089 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6502182839619065283, guid: 1b9b46051fd47044d893052f87107272, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: 1b9b46051fd47044d893052f87107272, type: 3}
   m_PrefabInstance: {fileID: 5795268145511389241}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &6678139497338299752 stripped
@@ -96,6 +96,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 73878409127093672}
-  leftHand: {fileID: 0}
-  imgWeapon: {fileID: 0}
-  handHolder: {fileID: 743245103169359354}
+  handHolder: {fileID: 5321356342101551089}
