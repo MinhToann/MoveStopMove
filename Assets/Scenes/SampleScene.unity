@@ -3217,7 +3217,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 1920}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -3632,6 +3632,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2016473458}
     m_Modifications:
+    - target: {fileID: 325140724449021677, guid: 880b4021c15bebe47be5af339b01d700, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 325140724449021677, guid: 880b4021c15bebe47be5af339b01d700, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 325140724449021677, guid: 880b4021c15bebe47be5af339b01d700, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 325140724449021677, guid: 880b4021c15bebe47be5af339b01d700, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1920
+      objectReference: {fileID: 0}
     - target: {fileID: 2517524250564765786, guid: 880b4021c15bebe47be5af339b01d700, type: 3}
       propertyPath: m_Name
       value: Canvas - MainMenu
@@ -3812,6 +3828,22 @@ PrefabInstance:
     - target: {fileID: 3521238624698127412, guid: 0813975a242c44545a20aaaa454e8ac8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588329060548240349, guid: 0813975a242c44545a20aaaa454e8ac8, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588329060548240349, guid: 0813975a242c44545a20aaaa454e8ac8, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588329060548240349, guid: 0813975a242c44545a20aaaa454e8ac8, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588329060548240349, guid: 0813975a242c44545a20aaaa454e8ac8, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 6614836555417270721, guid: 0813975a242c44545a20aaaa454e8ac8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -4103,6 +4135,22 @@ PrefabInstance:
     - target: {fileID: 2132262817859520660, guid: c030c96cca3f1e94a8ebb276039b003e, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275878941936911668, guid: c030c96cca3f1e94a8ebb276039b003e, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275878941936911668, guid: c030c96cca3f1e94a8ebb276039b003e, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275878941936911668, guid: c030c96cca3f1e94a8ebb276039b003e, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275878941936911668, guid: c030c96cca3f1e94a8ebb276039b003e, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 2651125198677207338, guid: c030c96cca3f1e94a8ebb276039b003e, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4661,6 +4709,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4500122996648198068, guid: 70b6b15678658a64b88eaffc47bebb48, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500122996648198068, guid: 70b6b15678658a64b88eaffc47bebb48, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500122996648198068, guid: 70b6b15678658a64b88eaffc47bebb48, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500122996648198068, guid: 70b6b15678658a64b88eaffc47bebb48, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1920
+      objectReference: {fileID: 0}
     - target: {fileID: 5431348822078329722, guid: 70b6b15678658a64b88eaffc47bebb48, type: 3}
       propertyPath: m_Name
       value: Canvas - GamePlay
@@ -4766,6 +4830,22 @@ PrefabInstance:
     - target: {fileID: 841653397047056553, guid: 109f95e238ee18d40b052263ff4c9b51, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6302143268348712830, guid: 109f95e238ee18d40b052263ff4c9b51, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6302143268348712830, guid: 109f95e238ee18d40b052263ff4c9b51, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6302143268348712830, guid: 109f95e238ee18d40b052263ff4c9b51, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 6302143268348712830, guid: 109f95e238ee18d40b052263ff4c9b51, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 7548058666765314098, guid: 109f95e238ee18d40b052263ff4c9b51, type: 3}
       propertyPath: m_Name
