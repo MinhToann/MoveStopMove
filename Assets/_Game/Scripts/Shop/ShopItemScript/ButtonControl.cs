@@ -19,14 +19,5 @@ public class ButtonControl : MonoBehaviour
         SaveShopData.Instance.SetCost(cost);
         textCoin.text = cost.ToString();
     }
-    public void BuyButton()
-    {
-        CanvasShop canvas = UIManager.Instance.GetUI<CanvasShop>();
-        canvas.BuyItem(canvas.TF);
-    }
-    
-    public void SetItemBuy()
-    {
-        
-    }
+
 }

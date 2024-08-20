@@ -28,11 +28,11 @@ MonoBehaviour:
   - {fileID: 1622222315358543096, guid: 4b3dc38e85e77dc4a8454c43467cdf74, type: 3}
   - {fileID: 4512235735806210198, guid: eb0b83d2ac4ec7141b4ffe72f6faa1e1, type: 3}
   - {fileID: 6410127955412231466, guid: 06f1268ce37d0fe4982cdd3f1e61de40, type: 3}
-  weaponsPrefab:
+  <weaponsPrefab>k__BackingField:
   - {fileID: -3797746563768727509, guid: a9de5a98f016a334c9a1113e07b1a12f, type: 3}
-  - {fileID: 4480970462013804593, guid: 0faa153a0a118504696bfd87614c6096, type: 3}
-  - {fileID: -2053783456197027393, guid: 80e99348703b9ab4b9efbc9c4846f3b1, type: 3}
-  - {fileID: 4543433003137637662, guid: 92b9dd74445f8d84996920aca1ca320c, type: 3}
   - {fileID: -1901537411055290810, guid: ccc985dbda18c7d4bbdf3855de7dc2e8, type: 3}
+  - {fileID: 4480970462013804593, guid: 0faa153a0a118504696bfd87614c6096, type: 3}
   - {fileID: -7971189060175911008, guid: 8506352b622e636469249ea56cfc1fc4, type: 3}
+  - {fileID: -2053783456197027393, guid: 80e99348703b9ab4b9efbc9c4846f3b1, type: 3}
   - {fileID: 5381290052908244872, guid: c8472a198f32b5142bd38d7e594b8a66, type: 3}
+  - {fileID: 4543433003137637662, guid: 92b9dd74445f8d84996920aca1ca320c, type: 3}

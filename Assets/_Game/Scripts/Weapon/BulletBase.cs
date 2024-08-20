@@ -8,12 +8,6 @@ public class BulletBase : GameUnit
     Character character;
     [SerializeField] private float throwSpeed = 3f;
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         ThrowForward();

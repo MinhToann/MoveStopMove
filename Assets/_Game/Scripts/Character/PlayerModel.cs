@@ -17,11 +17,7 @@ public class PlayerModel : MonoBehaviour
         weapon.transform.position = leftHand.position;
         weapon.transform.rotation = leftHand.rotation;
     }
-    
-    void Update()
-    {
 
-    }
     public void SetOverrideAnimator(AnimatorOverrideController overrideController)
     {
         animator.runtimeAnimatorController = overrideController;

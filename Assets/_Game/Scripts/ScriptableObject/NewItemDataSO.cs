@@ -11,19 +11,6 @@ public class NewItemDataSO : ScriptableObject
     public int listTemplateCount => templateItemList.Count;
 
 
-    public int GetItemCost(ItemType itemType)
-    {
-        return templateItemList[(int)itemType].costItem;
-    }
-    public string GetItemName(ItemType itemType)
-    {
-        return templateItemList[(int)itemType].titleName;
-    }
-    public Sprite GetItemImage(ItemType itemType)
-    {
-        return templateItemList[(int)itemType].imgItem;
-    }
-
     public ItemType SetItemType(int index)
     {
         return templateItemList[index].itemType;
@@ -47,12 +34,6 @@ public class NewItemDataSO : ScriptableObject
     public Sprite GetItemImage(int index)
     {
         return templateItemList[index].imgItem;
-    }
-    public void SetInfo(ItemType type)
-    {
-        GetItemCost(type);
-        GetItemName(type);
-        GetItemImage(type);
     }
   
 }

@@ -46,19 +46,6 @@ public class ButtonTemplate : ItemTemplate
         ItemTemplate currentTemplate = SaveShopData.Instance.LoadData().currentItem;
         currentTemplate.itemState = ItemState.Unlocked;
         SaveShopData.Instance.AddListItemUnlock(currentTemplate.shopType);
-        //if (UIManager.Instance.IsOpened<CanvasHatShop>())
-        //{
-        //    ShopManager.Instance.CreateItem(ItemType.Hat, UIManager.Instance.GetUI<CanvasHatShop>().SetParent());
-        //}
-        //else if (UIManager.Instance.IsOpened<CanvasPantShop>())
-        //{
-        //    ShopManager.Instance.CreateItem(ItemType.Pant, UIManager.Instance.GetUI<CanvasPantShop>().SetParent());
-        //}
-        //else if (UIManager.Instance.IsOpened<CanvasSkinShop>())
-        //{
-        //    ShopManager.Instance.CreateItem(ItemType.Pant, UIManager.Instance.GetUI<CanvasSkinShop>().SetParent());
-        //}
-        //canvas.InitBuyBtn(costItem, canvas.tfPanel);
         SavePlayerData.Instance.DecreaseCoin(currentTemplate.costItem);
         canvas.BuyItem(canvas.tfPanel);
     }

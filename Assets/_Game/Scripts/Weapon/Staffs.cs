@@ -15,20 +15,4 @@ public class Staffs : BulletBase
     {
         staffTrail.Play();
     }
-    //public override void OnTriggerEnter(Collider other)
-    //{
-    //    base.OnTriggerEnter(other);
-    //    SpawnEffect();
-    //}
-    //private void SpawnEffect()
-    //{
-    //    ParticleSystem bulletBoom = Instantiate(staffTrail);
-    //    bulletBoom.transform.position = TF.position;
-    //    bulletBoom.Play();
-    //    Invoke(nameof(OnDespawn), 0.5f);
-    //}    
-    //private void OnDespawn(ParticleSystem trail)
-    //{
-    //    Destroy(trail.gameObject);
-    //}    
 }

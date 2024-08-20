@@ -5,16 +5,8 @@ using UnityEngine.VFX;
 
 public class Maces : BulletBase
 {
-    [SerializeField] VisualEffect effect;
     public override void ThrowForward()
     {
         base.ThrowForward();
-        Instantiate(effect);
-        effect.Play();
     }
-    public void SpawnEffect()
-    {
-        
-    }    
-
 }
