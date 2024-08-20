@@ -11,10 +11,6 @@ public class Level : MonoBehaviour
     float xRandomPos;
     float zRandomPos;
 
-    void Start()
-    {
-        
-    }
     public Vector3 GetStartPosition()
     {
         return startPos.position;
@@ -26,9 +22,5 @@ public class Level : MonoBehaviour
         return new Vector3(xRandomPos, 0.5f, zRandomPos);
 
     }
- 
-    void Update()
-    {
-        
-    }
+
 }

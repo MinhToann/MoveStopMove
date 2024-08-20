@@ -8,7 +8,7 @@ public class ItemPrefabSO : ScriptableObject
     public ItemTemplate[] items;
     [SerializeField] HatTemplate[] hatsPrefab;
     [SerializeField] PantTemplate[] pantsPrefab;
-    [SerializeField] WeaponBase[] weaponsPrefab;
+    [field: SerializeField] public WeaponBase[] weaponsPrefab { get; private set; }
 
     public ItemTemplate ChangeItem(ItemType itemType)
     {

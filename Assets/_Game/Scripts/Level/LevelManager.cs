@@ -49,13 +49,6 @@ public class LevelManager : Singleton<LevelManager>
     {
         joystickControl.gameObject.SetActive(false);
     }
-    //public void ActiveShop()
-    //{
-    //    UIManager.Instance.CloseAll();
-    //    gameState = GameState.Shop;
-    //    UIManager.Instance.OpenUI<CanvasShop>();
-    //    changeCamState.ChangeAnim(Const.ANIM_SHOPPINGVIEW);
-    //}
     public void ReloadLevel()
     {
         OnLoadLevel(currentLevel);

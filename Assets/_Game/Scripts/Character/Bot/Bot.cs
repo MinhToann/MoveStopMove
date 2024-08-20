@@ -15,6 +15,7 @@ public class Bot : Character
     private float rotateSpeed = 3f;
     public bool isDestination => Vector3.Distance(TF.position, destination + (TF.position.y - destination.y) * Vector3.up) < 0.1f;
     [SerializeField] List<BotModel> listModels = new List<BotModel>();
+    [SerializeField] ItemPrefabSO itemWeapon;
     public override void OnInit()
     {
         base.OnInit();      
@@ -28,10 +29,10 @@ public class Bot : Character
         BotModel bot = Instantiate(listModels[index], TF);
         this.name = listModels[index].name;
         characterAnim = bot.GetAnimator();
-        bot.OnInit();
         handHolder = bot.handHolder;
         ChangeWeapon(ShopItemType.Staff, bot.handHolder);
-        
+        //Change Bot Model Weapon
+        ChangeWeapon(itemWeapon.weaponsPrefab[Random.Range(0, itemWeapon.weaponsPrefab.Length)].shopType, bot.handHolder);
         Debug.Log(this.name);
     }
     public override void Attack()
