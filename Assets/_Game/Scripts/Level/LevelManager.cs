@@ -14,7 +14,7 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField] JoystickControl joystickControl;
     [SerializeField] ChangeCameraState changeCamState;
     [SerializeField] List<CinemachineVirtualCamera> cameraVirtual;
-
+    [field: SerializeField] List<Character> characterLists = new List<Character>();
     void Start()
     {
         OnLoadLevel(currentLevel);
@@ -25,8 +25,25 @@ public class LevelManager : Singleton<LevelManager>
     {      
         SpawnPlayer();
         UIManager.Instance.OpenUI<CanvasMainMenu>();
-        BotManager.Instance.OnInit();       
+        BotManager.Instance.OnInit();
     }       
+    public void AddCharacter(Character character)
+    {
+        characterLists.Add(character);
+    }    
+    public void RemoveCharacter(Character character)
+    {
+        characterLists.Remove(character);
+        Destroy(character.gameObject);
+    }    
+    public void ClearCharacterList()
+    {
+        for(int i = 0; i < characterLists.Count; i++)
+        {
+            Destroy(characterLists[i].gameObject);
+        }    
+        characterLists.Clear();
+    }    
     public void SpawnPlayer()
     {
         if (getPlayer != null)
@@ -36,6 +53,7 @@ public class LevelManager : Singleton<LevelManager>
         getPlayer = Instantiate(player);
         getPlayer.InitPlayer();
         getPlayer.TF.position = curLevel.GetStartPosition();
+        AddCharacter(getPlayer);
     }    
     public Vector3 RandomPositionOnFloor()
     {
@@ -52,12 +70,14 @@ public class LevelManager : Singleton<LevelManager>
     public void ReloadLevel()
     {
         OnLoadLevel(currentLevel);
+        ClearCharacterList();
         BotManager.Instance.ClearAllBot();
         OnInit();
     }
     public void NextLevel()
     {
         OnLoadLevel(++currentLevel);
+        ClearCharacterList();
         BotManager.Instance.ClearAllBot();
         OnInit();
     }

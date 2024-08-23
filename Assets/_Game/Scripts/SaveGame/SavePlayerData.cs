@@ -16,11 +16,9 @@ public class SavePlayerData : Singleton<SavePlayerData>
     public void SaveData()
     {
         SaveGame.Save(Path, playerData);
-        Debug.Log("Save");
     }
     public PlayerData LoadData()
     {
-        Debug.Log("Load");
         return SaveGame.Load(Path, new PlayerData());
     }
     public void IncreaseCoin(int coin)
@@ -73,10 +71,6 @@ public class PlayerData
 
         playerModel = CharacterModel.Boy;
         coin = 0;
-        //characterModels.Add(playerModel);
-        //listHats.Add(hatType);
-        //listPants.Add(pantType);
-        //listWeapons.Add(weaponType);
     }
     
     public void SetHatItem(ShopItemType hatType)

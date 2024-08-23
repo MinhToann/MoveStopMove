@@ -126,6 +126,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMoving: 0
   rangeCollider: {fileID: 2058265194356938598}
+  listOverrideAnimators:
+  - {fileID: 22100000, guid: 06f6c5a8c32cadf48863bff65e5982ee, type: 2}
+  - {fileID: 22100000, guid: a34d990ed690fc244aacaaa18300bd2c, type: 2}
+  - {fileID: 22100000, guid: 6cebe5686521343479be84d0ca512d42, type: 2}
+  - {fileID: 22100000, guid: fa5ff50d6dc969044b18a01f6bfbe2ca, type: 2}
   isInRange: 0
   isStand: 1
   bulletPoint: {fileID: 7913512659159929390}
@@ -136,10 +141,6 @@ MonoBehaviour:
   <timerDeath>k__BackingField: 0
   rb: {fileID: 5403926200460367913}
   playerModels: {fileID: 364304917317200966, guid: 1991a57830d0b934cb0479805791d8fa, type: 3}
-  listOverrideAnimators:
-  - {fileID: 22100000, guid: 06f6c5a8c32cadf48863bff65e5982ee, type: 2}
-  - {fileID: 22100000, guid: a34d990ed690fc244aacaaa18300bd2c, type: 2}
-  - {fileID: 22100000, guid: 6cebe5686521343479be84d0ca512d42, type: 2}
 --- !u!54 &5403926200460367913
 Rigidbody:
   m_ObjectHideFlags: 0

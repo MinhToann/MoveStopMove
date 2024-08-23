@@ -15,4 +15,11 @@ public class Staffs : BulletBase
     {
         staffTrail.Play();
     }
+    public override void SpawnEffect()
+    {
+        base.SpawnEffect();
+        ParticleSystem particalBoom = Instantiate(staffBoom);
+        particalBoom.Play();
+        particalBoom.transform.position = TF.position;
+    }
 }

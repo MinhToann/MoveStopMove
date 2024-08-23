@@ -10,7 +10,7 @@ public class ButtonTemplate : ItemTemplate
     [SerializeField] Image image;
     [SerializeField] ItemType type;
     [SerializeField] int costButton;
-    
+
     public void SetValueButton(ItemType type, ShopItemType shopType, ItemState itemState,int cost, string name, Sprite image)
     {
         titleButton.text = name;
@@ -19,74 +19,17 @@ public class ButtonTemplate : ItemTemplate
     }   
     public void SetCostButton()
     {
-        CanvasShop canvas = UIManager.Instance.GetUI<CanvasShop>();     
-        ItemTemplate currentTemplate = this;
-        SaveShopData.Instance.GetItemTemplate(currentTemplate);
-        if (SavePlayerData.Instance.playerData.coin >= currentTemplate.costItem)
-        {
-            canvas.InitBuyBtn(costItem, canvas.tfPanel);
-        }
-        if (SavePlayerData.Instance.playerData.coin < currentTemplate.costItem)
-        {
-            canvas.NotEnoughMoney(costItem, canvas.tfPanel);
-            
-        }
-        if (SaveShopData.Instance.shopData.listItemUnlocked.Contains(currentTemplate.shopType))
-        {
-            canvas.BuyItem(canvas.tfPanel);
-        }
-        if (SaveShopData.Instance.shopData.listItemEquipped.Contains(currentTemplate.shopType))
-        {
-            canvas.EquippedItem(canvas.tfPanel);
-        }
+        CanvasShop canvas = UIManager.Instance.GetUI<CanvasShop>();
+        canvas.SetCostButton(this);
     }
     public void AddBuyButton()
     {
         CanvasShop canvas = UIManager.Instance.GetUI<CanvasShop>();
-        ItemTemplate currentTemplate = SaveShopData.Instance.LoadData().currentItem;
-        currentTemplate.itemState = ItemState.Unlocked;
-        SaveShopData.Instance.AddListItemUnlock(currentTemplate.shopType);
-        SavePlayerData.Instance.DecreaseCoin(currentTemplate.costItem);
-        canvas.BuyItem(canvas.tfPanel);
+        canvas.AddBuyButton();
     }
     public void EquippedBuyButton()
     {
         CanvasShop canvas = UIManager.Instance.GetUI<CanvasShop>();
-        ItemTemplate currentTemplate = SaveShopData.Instance.LoadData().currentItem;
-        currentTemplate.itemState = ItemState.Equipped;
-        
-        for (int i = 0; i < SaveShopData.Instance.shopData.listItemEquipped.Count; i++)
-        {
-            for(int j = 0; j < SaveShopData.Instance.shopData.listItemTemplateEquipped.Count; j++)
-            {
-                if (currentTemplate.itemType == SaveShopData.Instance.shopData.listItemTemplateEquipped[j])
-                {
-                    SaveShopData.Instance.shopData.listItemTemplateEquipped.RemoveAt(j);
-                    SaveShopData.Instance.RemoveItemEquipped(SaveShopData.Instance.shopData.listItemEquipped[j]);
-                }
-                
-            }
-            
-
-        }
-
-        SaveShopData.Instance.AddItemEquipped(currentTemplate.itemType);
-        SaveShopData.Instance.AddListItemEquipped(currentTemplate.shopType);
-        canvas.EquippedItem(canvas.tfPanel);
-
-        
-        if(SaveShopData.Instance.shopData.listItemEquipped.Contains(currentTemplate.shopType))
-        {
-            if (currentTemplate.itemType == ItemType.Weapon)
-            {
-                SavePlayerData.Instance.SetWeaponItem(currentTemplate.shopType);
-                LevelManager.Instance.getPlayer.SpawnWeapon();
-            }
-            if (currentTemplate.itemType == ItemType.Hat)
-            {
-                SavePlayerData.Instance.SetHatItem(currentTemplate.shopType);
-                LevelManager.Instance.getPlayer.SpawnHat();
-            }
-        }
+        canvas.EquippedBuyButton();
     }
 }

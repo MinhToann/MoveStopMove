@@ -98,4 +98,73 @@ public class CanvasShop : UICanvas
         currentButton = Instantiate(listButtonControl[3], tf);
         currentButton.OnInit(cost);
     }
+
+    public void SetCostButton(ItemTemplate currentItem)
+    {
+        ItemTemplate currentTemplate = currentItem;
+        SaveShopData.Instance.GetItemTemplate(currentTemplate);
+        if (SavePlayerData.Instance.playerData.coin >= currentTemplate.costItem)
+        {
+            InitBuyBtn(currentTemplate.costItem, tfPanel);
+        }
+        if (SavePlayerData.Instance.playerData.coin < currentTemplate.costItem)
+        {
+            NotEnoughMoney(currentTemplate.costItem, tfPanel);
+
+        }
+        if (SaveShopData.Instance.shopData.listItemUnlocked.Contains(currentTemplate.shopType))
+        {
+            BuyItem(tfPanel);
+        }
+        if (SaveShopData.Instance.shopData.listItemEquipped.Contains(currentTemplate.shopType))
+        {
+            EquippedItem(tfPanel);
+        }
+    }
+    public void AddBuyButton()
+    {
+        ItemTemplate currentTemplate = SaveShopData.Instance.LoadData().currentItem;
+        currentTemplate.itemState = ItemState.Unlocked;
+        SaveShopData.Instance.AddListItemUnlock(currentTemplate.shopType);
+        SavePlayerData.Instance.DecreaseCoin(currentTemplate.costItem);
+        BuyItem(tfPanel);
+    }
+    public void EquippedBuyButton()
+    {
+        ItemTemplate currentTemplate = SaveShopData.Instance.LoadData().currentItem;
+        currentTemplate.itemState = ItemState.Equipped;
+
+        for (int i = 0; i < SaveShopData.Instance.shopData.listItemEquipped.Count; i++)
+        {
+            for (int j = 0; j < SaveShopData.Instance.shopData.listItemTemplateEquipped.Count; j++)
+            {
+                if (currentTemplate.itemType == SaveShopData.Instance.shopData.listItemTemplateEquipped[j])
+                {
+                    SaveShopData.Instance.shopData.listItemTemplateEquipped.RemoveAt(j);
+                    SaveShopData.Instance.RemoveItemEquipped(SaveShopData.Instance.shopData.listItemEquipped[j]);
+                }
+
+            }
+        }
+
+        SaveShopData.Instance.AddItemEquipped(currentTemplate.itemType);
+        SaveShopData.Instance.AddListItemEquipped(currentTemplate.shopType);
+        EquippedItem(tfPanel);
+
+
+        if (SaveShopData.Instance.shopData.listItemEquipped.Contains(currentTemplate.shopType))
+        {
+            if (currentTemplate.itemType == ItemType.Weapon)
+            {
+                SavePlayerData.Instance.SetWeaponItem(currentTemplate.shopType);
+                LevelManager.Instance.getPlayer.SpawnWeapon();
+                LevelManager.Instance.getPlayer.SetAnimatorCharacter();
+            }
+            if (currentTemplate.itemType == ItemType.Hat)
+            {
+                SavePlayerData.Instance.SetHatItem(currentTemplate.shopType);
+                LevelManager.Instance.getPlayer.SpawnHat();
+            }
+        }
+    }
 }

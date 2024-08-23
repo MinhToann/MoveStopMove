@@ -5,6 +5,7 @@ using UnityEngine;
 public class Wands : BulletBase
 {
     [SerializeField] private ParticleSystem wandTrail;
+    [SerializeField] ParticleSystem effectBoom;
     public override void ThrowForward()
     {
         base.ThrowForward();
@@ -13,5 +14,12 @@ public class Wands : BulletBase
     private void EffectTrail()
     {
         wandTrail.Play();
+    }
+    public override void SpawnEffect()
+    {
+        base.SpawnEffect();
+        ParticleSystem particalBoom = Instantiate(effectBoom);
+        particalBoom.Play();
+        particalBoom.transform.position = TF.position;
     }
 }

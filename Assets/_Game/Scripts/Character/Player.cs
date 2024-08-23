@@ -8,9 +8,10 @@ public class Player : Character
     [SerializeField] Rigidbody rb;
     private JoystickControl joys;
     [SerializeField] PlayerModel playerModels;
-    [SerializeField] List<AnimatorOverrideController> listOverrideAnimators = new List<AnimatorOverrideController>();
+    
     private float moveSpeed = 5f;
     private PlayerModel model;
+    CameraController cam;
     private void Awake()
     {
         joys = GetComponent<JoystickControl>();
@@ -25,6 +26,7 @@ public class Player : Character
         OnInit();
         SpawnWeapon();
         SpawnHat();
+        SetAnimatorCharacter();
         //SpawnPant(playerModel.Legs);
     }
     public void SpawnModel()
@@ -63,6 +65,7 @@ public class Player : Character
         {
             //joys.gameObject.SetActive(true);
             //UIManager.Instance.OpenUI<JoystickControl>();
+            
             Movement();
             if (isDeath)
             {
@@ -74,6 +77,7 @@ public class Player : Character
             {
                 Invoke(nameof(OnVictory), 0.3f);
             }
+            
         }  
         if(UIManager.Instance.IsOpened<CanvasShop>())
         {
@@ -95,7 +99,7 @@ public class Player : Character
         //LevelManager.Instance.gameState = GameState.Lose;
         UIManager.Instance.OpenUI<CanvasDefeat>().SetTextAlive(UIManager.Instance.GetUI<CanvasGamePlay>().aliveNumber + 1);
         UIManager.Instance.GetUI<CanvasDefeat>().SetTextName(Target.name);
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
     }
     public void OnVictory()
     {
@@ -108,27 +112,30 @@ public class Player : Character
     {
         base.Attack();
         //ChangeAnim(Const.ANIM_THROW);
+    }
+    public void SetAnimatorCharacter()
+    {
         switch (SavePlayerData.Instance.LoadData().weaponType)
         {
             case ShopItemType.Sword:
-                //model.SetOverrideAnimator(listOverrideAnimators[1]);
-                ChangeAnim(Const.ANIM_SLASH);
+                model.SetOverrideAnimator(listOverrideAnimators[1]);
                 break;
             case ShopItemType.Wand:
-                //model.SetOverrideAnimator(listOverrideAnimators[2]);
-                ChangeAnim(Const.ANIM_FIREMAGIC);
+                model.SetOverrideAnimator(listOverrideAnimators[2]);
                 break;
             case ShopItemType.Staff:
-                //model.SetOverrideAnimator(listOverrideAnimators[2]);
-                ChangeAnim(Const.ANIM_FIREMAGIC);
+                model.SetOverrideAnimator(listOverrideAnimators[2]);
+                break;
+            case ShopItemType.Hammer:
+                model.SetOverrideAnimator(listOverrideAnimators[2]);
                 break;
             default:
-                //model.SetOverrideAnimator(listOverrideAnimators[0]);
-                ChangeAnim(Const.ANIM_THROW);
+                model.SetOverrideAnimator(listOverrideAnimators[0]);
                 break;
         }
         characterAnim = model.GetAnimator();
-    }
+ 
+    }    
     private void Movement()
     {
         if (Input.GetMouseButton(0))

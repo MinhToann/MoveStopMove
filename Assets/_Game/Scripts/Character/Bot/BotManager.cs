@@ -30,10 +30,11 @@ public class BotManager : Singleton<BotManager>
     {
         for (int i = 0; i < 7; i++)
         {
-            Bot b = Instantiate(bot, TF);
-            b.CreateBotModel();
-            b.TF.position = LevelManager.Instance.RandomPositionOnFloor();
-            listBots.Add(b);
+            Bot newBot = Instantiate(bot, TF);
+            newBot.CreateBotModel();
+            newBot.TF.position = LevelManager.Instance.RandomPositionOnFloor();
+            listBots.Add(newBot);
+            LevelManager.Instance.AddCharacter(newBot);
         }
     }
     public int GetBotCount()
@@ -43,7 +44,7 @@ public class BotManager : Singleton<BotManager>
     public void OnBotDeath(Bot bot)
     {
         listBots.Remove(bot);
-        Destroy(bot.gameObject);
+        //Destroy(bot.gameObject);
     }
     public void ClearAllBot()
     {

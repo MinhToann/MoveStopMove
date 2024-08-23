@@ -8,7 +8,7 @@ public class BulletBase : GameUnit
     Character character;
     [SerializeField] private float throwSpeed = 3f;
 
-    void Update()
+    public virtual void Update()
     {
         ThrowForward();
     }
@@ -28,6 +28,10 @@ public class BulletBase : GameUnit
         }
         else return false;
     }    
+    public virtual void SpawnEffect()
+    {
+
+    }    
     public virtual void ThrowForward()
     {
         TF.position += TF.forward * throwSpeed * Time.deltaTime;   
@@ -37,7 +41,8 @@ public class BulletBase : GameUnit
         if(Cache.ChaCollider(other))
         {            
             if (Cache.ChaCollider(other) != character)
-            {                
+            {
+                SpawnEffect();
                 Cache.ChaCollider(other).OnHit(100);                
                 OnDespawn();
                 character.UpdateAttackSize();

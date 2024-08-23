@@ -16,9 +16,10 @@ GameObject:
   - component: {fileID: 1921721316432323863}
   - component: {fileID: 5169726194113983690}
   - component: {fileID: 5430917533959034748}
+  - component: {fileID: -2353486435023704160}
   m_Layer: 0
   m_Name: Bot_test
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 2343608746049725729}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.26, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -127,6 +128,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMoving: 0
   rangeCollider: {fileID: 444824286730355127}
+  listOverrideAnimators:
+  - {fileID: 22100000, guid: 06f6c5a8c32cadf48863bff65e5982ee, type: 2}
+  - {fileID: 22100000, guid: a34d990ed690fc244aacaaa18300bd2c, type: 2}
+  - {fileID: 22100000, guid: 6cebe5686521343479be84d0ca512d42, type: 2}
+  - {fileID: 22100000, guid: fa5ff50d6dc969044b18a01f6bfbe2ca, type: 2}
   isInRange: 0
   isStand: 0
   bulletPoint: {fileID: 2574201685097855828}
@@ -238,6 +244,23 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &-2353486435023704160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2343608746049725729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411060de4483b5e4c9847cd3cbc18554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetColor: {r: 1, g: 0, b: 0, a: 1}
+  needBoxIndicator: 0
+  needArrowIndicator: 1
+  needDistanceText: 1
+  indicator: {fileID: 0}
 --- !u!1 &8833782059773783220
 GameObject:
   m_ObjectHideFlags: 0

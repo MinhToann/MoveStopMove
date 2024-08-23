@@ -10,11 +10,10 @@ public class Character : MonoBehaviour
     private Transform tf;
     protected float attackRange;
     [SerializeField] RangeCollider rangeCollider;
-    
+    [SerializeField] protected List<AnimatorOverrideController> listOverrideAnimators = new List<AnimatorOverrideController>();
     public bool isInRange = false;
     public bool isStand;
     public Transform bulletPoint;
-
     private float timer = 0.75f;
     public float Timer => timer;
     public Transform TF
@@ -48,6 +47,7 @@ public class Character : MonoBehaviour
     protected Transform Underbody;
     [field: SerializeField] public float timerDeath { get; private set; }
     private Vector3 upSizeCollider = new Vector3(0.3f, 0, 0.3f);
+    private float Upsize = 0.3f;
     void Start()
     {
         OnInit();
@@ -65,6 +65,7 @@ public class Character : MonoBehaviour
     }
     public virtual void OnDespawn()
     {
+        LevelManager.Instance.RemoveCharacter(this);
         CanvasGamePlay gamePlay = UIManager.Instance.GetUI<CanvasGamePlay>();
         gamePlay.SaveNumberAlive();
     }
@@ -80,7 +81,7 @@ public class Character : MonoBehaviour
     }    
     public void UpdateAttackSize()
     {
-        attackRange += 0.3f;
+        attackRange += Upsize;
         rangeCollider.TF.localScale += upSizeCollider;
     }    
     protected void ClearListCharacter()
@@ -98,22 +99,21 @@ public class Character : MonoBehaviour
         if (UIManager.Instance.IsOpened<CanvasGamePlay>())
         {
             rangeCollider.gameObject.SetActive(true);
+            for(int i = 0; i < characterList.Count; i++)
+            {
+                target = characterList[i];
+                if(target.isDeath)
+                {
+                    RemoveCharacter(target);
+                }    
+            }    
             if (!isDeath)
             {
                 cooldownTime.Execute(Time.deltaTime);
                 //if(characterList.Count > 0)
                 //{
                 //    Debug.Log(target.name);
-                //}    
-                if (target != null)
-                {
-                    Debug.Log(target.name);
-                    if (target.isDeath)
-                    {
-                        RemoveCharacter(target);
-
-                    }
-                }
+                //}                   
             }
             else
             {
@@ -130,12 +130,15 @@ public class Character : MonoBehaviour
 
     public void OnDeath()
     {
-        ChangeAnim(Const.ANIM_DEATH);
-        if (timerDeath > 2f)
+        if(isDeath)
         {
-            OnDespawn();
-            timerDeath = 0;
-        }
+            ChangeAnim(Const.ANIM_DEATH);
+            if (timerDeath > 2f)
+            {
+                OnDespawn();
+                timerDeath = 0;
+            }
+        }          
     }
     public void AddListCharacter(Character character)
     {
@@ -170,7 +173,17 @@ public class Character : MonoBehaviour
     {
 
     }
-
+    public bool CheckDistanceToJumpAttack()
+    {
+        if(currentWeapon.shopType == ShopItemType.Hammer)
+        {
+            if(IsTargetInRange())
+            {
+                return true;
+            }    
+        }
+        return false;
+    }    
     public void ChangeHatItem(ShopItemType hatType, Transform parent)
     {
         if(currentHat != null)
@@ -196,12 +209,16 @@ public class Character : MonoBehaviour
     public virtual void Attack()
     {
         //ChangeAnim(Const.ANIM_THROW);
-        cooldownTime.Start(() => Throw(), 0.3f);
+        if(!target.isDeath)
+        {
+            cooldownTime.Start(() => Throw(), 0.1f);
+        }           
     }    
 
     public virtual void Throw()
     {
         currentWeapon.SetCharacter(this);
+        ChangeAnim(Const.ANIM_THROW);
         currentWeapon.SpawnBullet();
     }    
 
@@ -217,7 +234,10 @@ public class Character : MonoBehaviour
 
     public void SetTarget(Character character)
     {
-        target = character;
+        if(!character.isDeath)
+        {
+            target = character;
+        }           
     }
     protected void CheckTarget()
     {

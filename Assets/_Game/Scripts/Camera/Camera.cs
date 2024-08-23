@@ -21,7 +21,7 @@ public class Camera : MonoBehaviour
         }
     }
     private void LateUpdate()
-    {
+    { 
         if(LevelManager.Instance.getPlayer != null)
         transform.position = Vector3.Lerp(TF.position, LevelManager.Instance.getPlayer.TF.position + new Vector3(0, 0, -10f), lerpSpeed * Time.deltaTime);
     } 

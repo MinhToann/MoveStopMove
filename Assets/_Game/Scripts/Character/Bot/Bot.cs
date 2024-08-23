@@ -2,9 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UIElements;
-using static UnityEngine.GraphicsBuffer;
-
 
 public class Bot : Character
 {
@@ -15,7 +12,7 @@ public class Bot : Character
     private float rotateSpeed = 3f;
     public bool isDestination => Vector3.Distance(TF.position, destination + (TF.position.y - destination.y) * Vector3.up) < 0.1f;
     [SerializeField] List<BotModel> listModels = new List<BotModel>();
-
+    private BotModel botModel;
     public override void OnInit()
     {
         base.OnInit();      
@@ -26,19 +23,42 @@ public class Bot : Character
     {
         
         int index = Random.Range(0, listModels.Count);
-        BotModel bot = Instantiate(listModels[index], TF);
+        botModel = Instantiate(listModels[index], TF);
         this.name = listModels[index].name;
-        characterAnim = bot.GetAnimator();
-        handHolder = bot.handHolder;
-        ChangeWeapon(ShopItemType.Staff, bot.handHolder);
+        characterAnim = botModel.GetAnimator();
+        handHolder = botModel.handHolder;
+        ChangeWeapon(ShopItemType.Staff, botModel.handHolder);
         //Change Bot Model Weapon
-        ChangeWeapon(itemPrefabSO.weaponsPrefab[Random.Range(0, itemPrefabSO.weaponsPrefab.Length)].shopType, bot.handHolder);
-        Debug.Log(this.name);
+        ShopItemType weaponType = itemPrefabSO.weaponsPrefab[Random.Range(0, itemPrefabSO.weaponsPrefab.Length)].shopType;
+        ChangeWeapon(weaponType, botModel.handHolder);
+        SetAnimatorBot(weaponType);
+    }
+    public void SetAnimatorBot(ShopItemType shopItemType)
+    {
+        switch (shopItemType)
+        {
+            case ShopItemType.Sword:
+                botModel.SetOverrideAnimator(listOverrideAnimators[1]);
+                break;
+            case ShopItemType.Wand:
+                botModel.SetOverrideAnimator(listOverrideAnimators[2]);
+                break;
+            case ShopItemType.Staff:
+                botModel.SetOverrideAnimator(listOverrideAnimators[2]);
+                break;
+            case ShopItemType.Hammer:
+                botModel.SetOverrideAnimator(listOverrideAnimators[2]);
+                break;
+            default:
+                botModel.SetOverrideAnimator(listOverrideAnimators[0]);
+                break;
+        }
+        characterAnim = botModel.GetAnimator();
     }
     public override void Attack()
     {
         base.Attack();
-        ChangeAnim(Const.ANIM_THROW);
+        //ChangeAnim(Const.ANIM_THROW);
     }
     public override void Throw()
     {
